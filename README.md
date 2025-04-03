@@ -12,8 +12,11 @@ OnePlus Ace 5 (ColorOS):
 
 ### CPH2645 (OxygenOS 15) EU
 [CPH2645\_15.0.0.701](Link)
+
 [CPH2645\_15.0.0.501](Link)
+
 [CPH2645\_15.0.0.406](Link)
+
 [CPH2645\_15.0.0.403](Link)
 
 ### CPH2645 (OxygenOS 15) GLO
