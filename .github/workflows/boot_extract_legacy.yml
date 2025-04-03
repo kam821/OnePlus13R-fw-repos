@@ -4,7 +4,7 @@ on:
     workflow_dispatch:
         inputs:
             fileurl:
-                description: 'link of full OxygenOS/ColorOS file'
+                description: 'Link of full OxygenOS/ColorOS file'
                 required: true
                 type: string
 
@@ -32,7 +32,7 @@ jobs:
             
             - name: Download OTA
               run: |
-                wget --user-agent="User-Agent: Dalvik/2.1.0 (Linux; U; Android 15; PJD110 Build/AP3A.240617.008)" -q --show-progress -O ota.zip "${{ github.event.inputs.fileurl }}"
+                wget --user-agent="User-Agent: Dalvik/2.1.0 (Linux; U; Android 15; PKG110 Build/UKQ1.231108.001)" -q --show-progress -O ota.zip "${{ github.event.inputs.fileurl }}"
                 unzip ota.zip
                 
             - name: Download payload dumper
@@ -53,5 +53,5 @@ jobs:
                 GLO="(GLO)"
                 TAG_NAME=$(grep "product_name=" META-INF/com/android/metadata | cut -d = -f 2)
                 REL_NAME=$(grep "version_name=" META-INF/com/android/metadata | sed 's/^[^=]*=//')
-                if [ $TAG_NAME == 'CPH2581' ]; then REL_NAME="$REL_NAME$GLO";elif [ $TAG_NAME == "CPH2581EEA" ]; then REL_NAME="$REL_NAME$EU";fi
+                if [ $TAG_NAME == 'CPH2645' ]; then REL_NAME="$REL_NAME$GLO";elif [ $TAG_NAME == "CPH2645EEA" ]; then REL_NAME="$REL_NAME$EU";fi
                 gh release create $REL_NAME --title $(echo $REL_NAME) --notes "" boot.zip init_boot.zip recovery.zip 

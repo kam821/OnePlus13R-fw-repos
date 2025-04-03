@@ -8,7 +8,7 @@ on:
                 required: true
                 type: string
             fileurl:
-                description: 'link of full OxygenOS/ColorOS file'
+                description: 'Link of full OxygenOS/ColorOS file'
                 required: true
                 type: string
 
@@ -27,7 +27,7 @@ jobs:
             - name: Checkout Base Version 
               uses: robinraju/release-downloader@v1
               with:
-                repository: 'snowwolf725/OnePlus12-fw-repos'
+                repository: 'kam821/OnePlus13R-fw-repos'
                 tag: "${{ github.event.inputs.baseversion }}"
                 fileName: '*.zip'
                 
@@ -53,7 +53,7 @@ jobs:
               run: |
                 git clone https://github.com/LineageOS/android_prebuilts_extract-tools.git
 
-            - name: Download  Incremental OTA
+            - name: Download incremental OTA
               run: |
                 wget -q --show-progress -O ota.zip "${{ github.event.inputs.fileurl }}"
                                          
